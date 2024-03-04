@@ -4,8 +4,7 @@ const bodyParser = require('body-parser');
 const canvasRoutes = require('./routes/canvas-routes');
 
 const app = express();
-// const port = (process.env.PORT || 4000);
-const port = 4002;
+const port = (process.env.PORT || 4000);
 
 const cors = require('cors');
 app.use(cors());
