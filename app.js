@@ -7,6 +7,11 @@ const app = express();
 const port = (process.env.PORT || 4000);
 
 const cors = require('cors');
+let corsOptions = {
+  origin: 'file:///media/developer/apps/usr/palm/applications/drawwithme.app.test3/index.multi.html',
+  credentials: true
+}
+// app.use(cors(corsOptions));
 app.use(cors());
 
 app.use(bodyParser.json({limit: '50mb'}));

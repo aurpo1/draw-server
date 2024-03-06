@@ -1,26 +1,15 @@
 const HttpError = require('../models/http-error');
 
-const canvasDummy = [
-  {
-    id: '0',
-    base: ''
-  },
-  {
-    id: '1',
-    base: 'sss'
-  }
-];
+let exportImg = {
+  id: '',
+  base: ''
+}
 
 const getImgById = (req, res, next) => {
-  const canvasId = req.params.cid;
-  const c = canvasDummy.find(cc => {
-    return cc.id === canvasId;
-  });
-
-  if (!c) {
+  if (!exportImg.id) {
     throw new HttpError('Cannot found canvas image', 404);
   }
-  res.send(`<img src="${c.base}"/>`);
+  res.send(`<img src="${exportImg.base}"/>`);
 }
 
 const createImg = (req, res, next) => {
@@ -29,7 +18,7 @@ const createImg = (req, res, next) => {
     id,
     base
   }
-  canvasDummy.unshift(newCanvas);
+  exportImg = newCanvas;
   res.status(201).json({canvas: newCanvas});
 }
 

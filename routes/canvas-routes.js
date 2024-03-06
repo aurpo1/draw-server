@@ -1,11 +1,10 @@
 const express = require('express');
 
-const placesControllers = require('../controllers/canvas-controllers');
+const canvasControllers = require('../controllers/canvas-controllers');
 const router = express.Router();
 
-// /api/draw/...
-router.get('/:cid', placesControllers.getImgById);
+router.get('/:cid', canvasControllers.getImgById);
 
-router.post('/', placesControllers.createImg);
+router.post('/', canvasControllers.createImg);
 
 module.exports = router;
