@@ -10,9 +10,6 @@ const getImgById = (req, res, next) => {
   if (!exportImg[req.params.cid]) {
     throw new HttpError('Cannot found canvas image', 404);
   }
-  console.log(req);
-  console.log('--------------------');
-  console.log(res);
   res.send(`<img src="${exportImg[req.params.cid]}"/>`);
 }
 
@@ -24,9 +21,6 @@ const createImg = (req, res, next) => {
   //   delete exportImg[id];
   //   console.log('delete ', exportImg);
   // }, 20000);
-  console.log(req);
-  console.log('--------------------');
-  console.log(res);
   res.status(201).json({msg: 'Succeed to save'});
 }
 
